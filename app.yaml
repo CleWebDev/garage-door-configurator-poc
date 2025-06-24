@@ -1,0 +1,20 @@
+name: garage-door-configurator
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: your-username/garage-door-app
+    branch: main
+  build_command: python setup.py
+  run_command: gunicorn --bind 0.0.0.0:$PORT app:app
+  environment_slug: python
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 5000
+  envs:
+  - key: OPENAI_API_KEY
+    scope: RUN_TIME
+    type: SECRET
+  - key: PORT
+    scope: RUN_TIME
+    value: "5000"
