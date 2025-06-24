@@ -126,7 +126,7 @@ poetry.lock
 __pypackages__/
 
 # Static files (images will be provided by user)
-static/images/*.webp
+# static/images/*.webp
 static/images/*.jpg
 static/images/*.png
 static/images/*.gif
