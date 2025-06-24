@@ -3,9 +3,9 @@ services:
 - name: web
   source_dir: /
   github:
-    repo: your-username/garage-door-app
+    repo: CleWebDev/garage-door-configurator-poc
     branch: main
-  build_command: python setup.py
+  build_command: python initialize_app.py
   run_command: gunicorn --bind 0.0.0.0:$PORT app:app
   environment_slug: python
   instance_count: 1
