@@ -4,268 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garage Door Configurator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #7f8c8d;
-        }
-
-        .main-content {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .config-panel {
-            flex: 1;
-            min-width: 400px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .preview-panel {
-            flex: 1;
-            min-width: 400px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: #2c3e50;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-        }
-
-        .configure-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .configure-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .configure-btn:disabled {
-            background-color: #bdc3c7;
-            cursor: not-allowed;
-        }
-
-        .door-preview {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            margin-bottom: 15px;
-        }
-
-        .door-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .door-preview.empty {
-            color: #7f8c8d;
-        }
-
-        .results-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            display: none;
-            width: 100%;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            color: #7f8c8d;
-        }
-
-        .results {
-            display: none;
-        }
-
-        .delivery-info {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .product-card {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #ecf0f1;
-        }
-
-        .product-name {
-            font-weight: 500;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .product-price {
-            font-weight: bold;
-            color: #27ae60;
-            margin-bottom: 8px;
-        }
-
-        .product-description {
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-
-        .weather-section {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-
-        .weather-section h4 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .order-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: none;
-        }
-
-        .order-btn:hover {
-            background-color: #c0392b;
-        }
-
-        .success-message {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 6px;
-            color: #155724;
-            display: none;
-        }
-
-        .error {
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .typing-text {
-            overflow: hidden;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .config-panel, .preview-panel {
-                min-width: auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Garage Door Configurator</h1>
-            <p>Design and configure your perfect garage door</p>
+            <div class="logo-section">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Garage door outline -->
+                        <rect x="4" y="8" width="32" height="24" rx="2" fill="none" stroke="#FF6600" stroke-width="2"/>
+                        <!-- Door panels -->
+                        <rect x="6" y="10" width="12" height="20" fill="#FF6600" opacity="0.9"/>
+                        <rect x="22" y="10" width="12" height="20" fill="#FF6600" opacity="0.9"/>
+                        <!-- Panel dividers -->
+                        <line x1="18" y1="10" x2="18" y2="30" stroke="#FF6600" stroke-width="1"/>
+                        <line x1="6" y1="20" x2="18" y2="20" stroke="#FF6600" stroke-width="1"/>
+                        <line x1="22" y1="20" x2="34" y2="20" stroke="#FF6600" stroke-width="1"/>
+                        <!-- Handle -->
+                        <circle cx="12" cy="15" r="1" fill="#FF6600"/>
+                        <circle cx="28" cy="15" r="1" fill="#FF6600"/>
+                    </svg>
+                </div>
+                <div class="company-name">
+                    <h1>Summit</h1>
+                    <span class="tagline">Garage Door</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <h2>Garage Door Configurator</h2>
+                <p>Design and configure your perfect garage door</p>
+            </div>
         </div>
 
         <div class="main-content">
@@ -336,11 +105,12 @@
                 <div class="products-grid" id="productsGrid"></div>
 
                 <div class="weather-section">
-                    <h4>Weather Information for Independence, Ohio</h4>
-                    <div id="weatherContent" class="typing-text"></div>
+                    <div class="weather-content">
+                        <h4>Weather Information for Independence, Ohio</h4>
+                        <div id="weatherContent" class="typing-text"></div>
+                    </div>
+                    <button class="order-btn" id="orderBtn">Order Now</button>
                 </div>
-
-                <button class="order-btn" id="orderBtn">Order Now</button>
             </div>
         </div>
 
@@ -465,6 +235,32 @@
                 this.results.style.display = 'block';
                 this.resultsSection.style.display = 'block';
                 
+                // Smooth scroll to results section for better UX on smaller screens
+                // Use iframe-safe scrolling that won't affect parent page
+                setTimeout(() => {
+                    // Check if we're in an iframe
+                    const isInIframe = window !== window.parent;
+                    
+                    if (isInIframe) {
+                        // If in iframe, scroll the iframe's document, not the parent
+                        const iframeElement = this.resultsSection;
+                        const iframeRect = iframeElement.getBoundingClientRect();
+                        const iframeTop = iframeRect.top + window.pageYOffset;
+                        
+                        // Scroll within the iframe only
+                        window.scrollTo({
+                            top: iframeTop - 20, // 20px offset for breathing room
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // If not in iframe, use normal scrollIntoView
+                        this.resultsSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                }, 100);
+                
                 // Show order button after a delay
                 setTimeout(() => {
                     this.orderBtn.style.display = 'block';
@@ -511,6 +307,32 @@
                     this.orderBtn.textContent = 'Order Placed';
                     this.orderBtn.disabled = true;
                     
+                    // Smooth scroll to success message for better UX on smaller screens
+                    // Use iframe-safe scrolling that won't affect parent page
+                    setTimeout(() => {
+                        // Check if we're in an iframe
+                        const isInIframe = window !== window.parent;
+                        
+                        if (isInIframe) {
+                            // If in iframe, scroll the iframe's document, not the parent
+                            const iframeElement = successMessage;
+                            const iframeRect = iframeElement.getBoundingClientRect();
+                            const iframeTop = iframeRect.top + window.pageYOffset;
+                            
+                            // Scroll within the iframe only
+                            window.scrollTo({
+                                top: iframeTop - 20, // 20px offset for breathing room
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            // If not in iframe, use normal scrollIntoView
+                            successMessage.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }
+                    }, 100);
+                    
                 } catch (error) {
                     this.showError(`Error placing order: ${error.message}`);
                 }
@@ -554,4 +376,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
