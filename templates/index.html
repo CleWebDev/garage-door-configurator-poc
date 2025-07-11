@@ -9,8 +9,32 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Garage Door Configurator</h1>
-            <p>Design and configure your perfect garage door</p>
+            <div class="logo-section">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Garage door outline -->
+                        <rect x="4" y="8" width="32" height="24" rx="2" fill="none" stroke="#FF6600" stroke-width="2"/>
+                        <!-- Door panels -->
+                        <rect x="6" y="10" width="12" height="20" fill="#FF6600" opacity="0.9"/>
+                        <rect x="22" y="10" width="12" height="20" fill="#FF6600" opacity="0.9"/>
+                        <!-- Panel dividers -->
+                        <line x1="18" y1="10" x2="18" y2="30" stroke="#FF6600" stroke-width="1"/>
+                        <line x1="6" y1="20" x2="18" y2="20" stroke="#FF6600" stroke-width="1"/>
+                        <line x1="22" y1="20" x2="34" y2="20" stroke="#FF6600" stroke-width="1"/>
+                        <!-- Handle -->
+                        <circle cx="12" cy="15" r="1" fill="#FF6600"/>
+                        <circle cx="28" cy="15" r="1" fill="#FF6600"/>
+                    </svg>
+                </div>
+                <div class="company-name">
+                    <h1>Summit</h1>
+                    <span class="tagline">Garage Door</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <h2>Garage Door Configurator</h2>
+                <p>Design and configure your perfect garage door</p>
+            </div>
         </div>
 
         <div class="main-content">
@@ -81,11 +105,12 @@
                 <div class="products-grid" id="productsGrid"></div>
 
                 <div class="weather-section">
-                    <h4>Weather Information for Independence, Ohio</h4>
-                    <div id="weatherContent" class="typing-text"></div>
+                    <div class="weather-content">
+                        <h4>Weather Information for Independence, Ohio</h4>
+                        <div id="weatherContent" class="typing-text"></div>
+                    </div>
+                    <button class="order-btn" id="orderBtn">Order Now</button>
                 </div>
-
-                <button class="order-btn" id="orderBtn">Order Now</button>
             </div>
         </div>
 
@@ -210,6 +235,32 @@
                 this.results.style.display = 'block';
                 this.resultsSection.style.display = 'block';
                 
+                // Smooth scroll to results section for better UX on smaller screens
+                // Use iframe-safe scrolling that won't affect parent page
+                setTimeout(() => {
+                    // Check if we're in an iframe
+                    const isInIframe = window !== window.parent;
+                    
+                    if (isInIframe) {
+                        // If in iframe, scroll the iframe's document, not the parent
+                        const iframeElement = this.resultsSection;
+                        const iframeRect = iframeElement.getBoundingClientRect();
+                        const iframeTop = iframeRect.top + window.pageYOffset;
+                        
+                        // Scroll within the iframe only
+                        window.scrollTo({
+                            top: iframeTop - 20, // 20px offset for breathing room
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // If not in iframe, use normal scrollIntoView
+                        this.resultsSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                }, 100);
+                
                 // Show order button after a delay
                 setTimeout(() => {
                     this.orderBtn.style.display = 'block';
@@ -255,6 +306,32 @@
                     
                     this.orderBtn.textContent = 'Order Placed';
                     this.orderBtn.disabled = true;
+                    
+                    // Smooth scroll to success message for better UX on smaller screens
+                    // Use iframe-safe scrolling that won't affect parent page
+                    setTimeout(() => {
+                        // Check if we're in an iframe
+                        const isInIframe = window !== window.parent;
+                        
+                        if (isInIframe) {
+                            // If in iframe, scroll the iframe's document, not the parent
+                            const iframeElement = successMessage;
+                            const iframeRect = iframeElement.getBoundingClientRect();
+                            const iframeTop = iframeRect.top + window.pageYOffset;
+                            
+                            // Scroll within the iframe only
+                            window.scrollTo({
+                                top: iframeTop - 20, // 20px offset for breathing room
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            // If not in iframe, use normal scrollIntoView
+                            successMessage.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }
+                    }, 100);
                     
                 } catch (error) {
                     this.showError(`Error placing order: ${error.message}`);

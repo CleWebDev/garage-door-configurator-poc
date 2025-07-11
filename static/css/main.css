@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +7,10 @@
 }
 
 body {
-
     color: #333;
     line-height: 1.6;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
 }
 
 .container {
@@ -19,37 +20,90 @@ body {
 }
 
 .header {
-
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 3px solid #FF6600;
 }
 
-.header h1 {
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-    margin-bottom: 10px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.625rem !important;
-    font-weight: 400 !important;
-    text-align: center;
+.logo {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-h1, h2{
-    font-family: 'Raleway', sans-serif;
-    color: #45556c;
-    font-weight: 400;
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    display: block;
 }
- h3, h4, h5, h6 {
+
+.company-name h1 {
+    margin: 0;
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
     font-size: 1.75rem;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    color:#956ea5
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: .8;
+    letter-spacing: 1px;
 }
-.header p {
-   
+
+.tagline {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-content {
+    text-align: right;
+}
+
+.header-content h2 {
+    margin: 0 0 0 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+h1, h2 {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+h3, h4, h5, h6 {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.header-content p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .main-content {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     flex-wrap: wrap;
 }
 
@@ -57,92 +111,89 @@ h1, h2{
     flex: 1;
     min-width: 400px;
     background: white;
-    padding: 3rem;
- 
-    border-radius: 40px;
-    background-color: rgba(252, 239, 217, .6);
-    border-top: 3px #f4c74a solid;
-    background-image: url(https://www.theprovatogroup.com/wp-content/plugins/block-based-landing-pages/blocks/hwdi-team/images/right-back.webp);
-    background-repeat: no-repeat;
-    background-position: left;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
 }
 
 .preview-panel {
     flex: 1;
     min-width: 400px;
-  
-    padding: 3rem;
+    background: white;
+    padding: 30px;
     border-radius: 8px;
-
-    background-color: rgba(191, 169, 202, .3);
-    border-top: 3px #594364 solid;
-    border-radius: 40px;
-    font-size: 17px;
-    background-image: url(https://www.theprovatogroup.com/wp-content/plugins/block-based-landing-pages/blocks/hwdi-team/images/left-back.webp);
-    background-repeat: no-repeat;
-    background-position: right;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
 }
 
-
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
-    color: #2c3e50;
+    color: #1a1a1a;
+    font-size: 0.95rem;
 }
 
 select, input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease;
 }
 
 select:focus, input:focus {
     outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    border-color: #FF6600;
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
 }
 
 .configure-btn {
     width: 100%;
     color: #fff;
-    padding: .5rem 1rem;
-    transition: all .3s ease;
-    border-radius: 5px;
-    background-color: #956ea5;
-    font-family: "Raleway", sans-serif;
-    border-color: transparent;
+    padding: 14px 24px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    background-color: #FF6600;
+    font-family: 'Inter', sans-serif;
+    border: none;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .configure-btn:hover {
-    background-color: #aa8cb8;
-    text-decoration: none;
-    cursor: pointer;			
+    background-color: #e55a00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
 }
 
 .configure-btn:disabled {
-    background-color: #bdc3c7;
+    background-color: #ccc;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .door-preview {
     width: 100%;
     height: 300px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f8f9fa;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .door-preview img {
@@ -152,27 +203,25 @@ select:focus, input:focus {
 }
 
 .door-preview.empty {
-    color: #7f8c8d;
+    color: #666;
 }
 
 .results-section {
     background: white;
-    padding:3rem;
-    border: 1px rgba(89,67,100, .8) solid;
-    border-top: 3px #594364 solid;
-    border-radius: 40px;
-    margin-top: 20px;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 25px;
     display: none;
     width: 100%;
-   
-    
 }
 
 .loading {
     display: none;
     text-align: center;
-    padding: 20px;
-    color: #7f8c8d;
+    padding: 30px;
+    color: #666;
 }
 
 .results {
@@ -181,92 +230,106 @@ select:focus, input:focus {
 
 .delivery-info {
     background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    background-image: url(https://www.theprovatogroup.com/wp-content/plugins/block-based-landing-pages/blocks/hwdi-team/images/left-back.webp);
-    background-repeat: no-repeat;
-    background-position: right;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
 }
 
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
 .product-card {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #ecf0f1;
-    background-image: url(https://www.theprovatogroup.com/wp-content/plugins/block-based-landing-pages/blocks/hwdi-team/images/right-back.webp);
-    background-repeat: no-repeat;
-    background-position: right;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .product-name {
-    font-weight: 500;
-    color: #2c3e50;
-    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .product-price {
-    font-weight: bold;
-    color: #27ae60;
-    margin-bottom: 8px;
+    font-weight: 700;
+    color: #FF6600;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .product-description {
-    color: #7f8c8d;
-    font-size: 14px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .weather-section {
     background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.weather-content {
+    flex: 1;
 }
 
 .weather-section h4 {
-    margin-bottom: 10px;
-    color: #2c3e50;
+    margin-bottom: 15px;
+    color: #1a1a1a;
 }
 
 .order-btn {
     width: 250px;
-    margin: 1rem auto 2rem;
-    background-color: #fed45e;
-    padding: 7px 25px;
-    border-radius: 8px;
-    color: #2a3441;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin: 0;
+    background-color: #FF6600;
+    padding: 14px 24px;
+    border-radius: 6px;
+    color: #fff;
     display: none;
-    font-family: "Raleway", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 1.1em;
-    border: 1px transparent solid;
+    font-size: 1rem;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
 }
 
 .order-btn:hover {
-    background-color: #2a3441;
-    color: #fff;
-
+    background-color: #e55a00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
 }
 
 .success-message {
-    margin-top: 15px;
-    padding: 3rem;
+    margin-top: 20px;
+    padding: 20px;
     background-color: #d4edda;
     border: 1px solid #c3e6cb;
-    border-radius: 40px;
+    border-radius: 8px;
     color: #155724;
-    border: 1px #155724 solid;
-    border-top: 3px #155724 solid;
     display: none;
 }
 
@@ -274,8 +337,8 @@ select:focus, input:focus {
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
     color: #721c24;
-    padding: 15px;
-    border-radius: 6px;
+    padding: 20px;
+    border-radius: 8px;
     margin-bottom: 20px;
     display: none;
 }
@@ -284,6 +347,7 @@ select:focus, input:focus {
     overflow: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -293,5 +357,23 @@ select:focus, input:focus {
     
     .config-panel, .preview-panel {
         min-width: auto;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .header-content {
+        text-align: center;
+    }
+    
+    .company-name h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 15px;
     }
 } 
