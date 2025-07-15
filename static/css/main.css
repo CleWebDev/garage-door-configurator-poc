@@ -82,13 +82,17 @@ body {
     color: #1a1a1a;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-family: 'Inter', sans-serif;
     color: #1a1a1a;
     font-weight: 600;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
     font-size: 1.5rem;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -113,7 +117,7 @@ h3, h4, h5, h6 {
     background: white;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
 }
 
@@ -123,7 +127,7 @@ h3, h4, h5, h6 {
     background: white;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
 }
 
@@ -139,7 +143,8 @@ label {
     font-size: 0.95rem;
 }
 
-select, input {
+select,
+input {
     width: 100%;
     padding: 12px 16px;
     border: 2px solid #e0e0e0;
@@ -149,7 +154,8 @@ select, input {
     transition: border-color 0.2s ease;
 }
 
-select:focus, input:focus {
+select:focus,
+input:focus {
     outline: none;
     border-color: #FF6600;
     box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
@@ -211,7 +217,7 @@ select:focus, input:focus {
     padding: 30px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 25px;
     display: none;
     width: 100%;
@@ -248,13 +254,13 @@ select:focus, input:focus {
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .product-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .product-name {
@@ -354,26 +360,37 @@ select:focus, input:focus {
     .main-content {
         flex-direction: column;
     }
-    
-    .config-panel, .preview-panel {
+
+    .config-panel,
+    .preview-panel {
         min-width: auto;
     }
-    
+
     .header {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
+
     .header-content {
         text-align: center;
     }
-    
+
     .company-name h1 {
         font-size: 1.5rem;
     }
-    
+
     .container {
         padding: 15px;
     }
-} 
+
+    .weather-section {
+
+        display: block;
+
+    }
+
+    .order-btn {
+        margin: 20px auto;
+    }
+}
